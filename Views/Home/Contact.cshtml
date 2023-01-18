@@ -1,0 +1,60 @@
+﻿@model ContactViewModel
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "_Layout";
+}
+
+@section Scripts {
+    <script src="~/dist/validation.bundle.js" defer></script>
+}
+
+<div class="h-screen px-4 pb-24 overflow-auto md:px-6">
+    <h1 class="text-4xl font-semibold text-gray-800 dark:text-white">
+        @ViewBag.Title
+    </h1>
+    <h2 class="text-gray-400 text-md">
+        We will be happy to receive your thoughts.
+    </h2>
+
+
+    <form class="flex w-full max-w-xl space-x-3">
+        <div class="w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
+
+            <div class="grid max-w-xl grid-cols-2 gap-4 m-auto">
+
+                <div class="col-span-2">
+                    <div class=" relative ">
+                        <label for="required-email" class="text-gray-700" asp-for="Subject">
+                            Subject
+                            <span class="text-red-500 required-dot">
+                                *
+                            </span>
+                        </label>
+                        <input required asp-for="Subject" class="peer invalid:border-red-300 invalid:border-2 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent  " placeholder="Your email" />
+                        <span asp-validation-for="Subject" class="hidden peer-invalid:block peer-invalid:font-bold peer-invalid:text-red-500 relative text-sm"></span>
+                    </div>
+                </div>
+                <div class="col-span-2">
+                    <label class="text-gray-700" asp-for="Message">
+                        Message
+                        <span class="text-red-500 required-dot">
+                            *
+                        </span>
+                    </label>
+                    <textarea required class="peer invalid:border-red-300 invalid:border-2 flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-gray-300 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" asp-for="Message" rows="10">
+                    </textarea>
+                    <span asp-validation-for="Message" class="hidden peer-invalid:block peer-invalid:font-bold peer-invalid:text-red-500 relative text-sm relative text-sm"></span>
+                </div>
+                <div class="col-span-2 text-right">
+                    <button type="submit" class="py-2 px-4  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                        Send
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
